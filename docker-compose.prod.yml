@@ -1,0 +1,15 @@
+services:
+    server:
+        build:
+            context: ./server
+            target: prod
+        container_name: antoine_exam_server
+        environment:
+            APP_ENV: production
+        ports:
+            - '9000:9000'
+        volumes:
+            - logs:/app/logs
+
+volumes:
+    logs:

@@ -1,0 +1,65 @@
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Docker Web App</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 20px;
+                background-color: #f0f0f0;
+            }
+            .container {
+                background: #fff;
+                padding: 20px;
+                border-radius: 4px;
+            }
+            h1 {
+                color: #333;
+            }
+            .btn {
+                background: #007bff;
+                color: #fff;
+                border: none;
+                padding: 8px 16px;
+                cursor: pointer;
+                margin-right: 10px;
+                border-radius: 3px;
+            }
+            .btn:hover {
+                background-color: #0056b3;
+            }
+            #responseArea {
+                margin-top: 20px;
+                white-space: pre-wrap;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Docker Web App</h1>
+            <button class="btn" onclick="fetchData()">Get Data</button>
+            <button class="btn" onclick="sendMail()">Send Mail</button>
+            <pre id="responseArea"></pre>
+        </div>
+        <script>
+            function fetchData() {
+                fetch('http://localhost:9000')
+                    .then((response) => response.json())
+                    .then((data) => {
+                        document.getElementById('responseArea').innerText =
+                            JSON.stringify(data, null, 2);
+                    })
+                    .catch((error) => console.error(error));
+            }
+            function sendMail() {
+                fetch('http://localhost:9000', { method: 'POST' })
+                    .then((response) => response.json())
+                    .then((data) => {
+                        document.getElementById('responseArea').innerText =
+                            JSON.stringify(data, null, 2);
+                    })
+                    .catch((error) => console.error(error));
+            }
+        </script>
+    </body>
+</html>
