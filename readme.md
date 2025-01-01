@@ -9,6 +9,7 @@
     -   [Lancement en Environnement de Développement](#lancement-en-environnement-de-développement)
     -   [Construction de l’Image pour la Production](#construction-de-limage-pour-la-production)
     -   [Lancement en Environnement de Production](#lancement-en-environnement-de-production)
+-   [Dépôt Docker](#dépôt-docker)
 -   [Références](#références)
 
 ## Description
@@ -66,6 +67,10 @@ docker-compose -f docker-compose.yml -f docker-compose.prod.yml up -d
     ```bash
     docker-compose -f docker-compose.yml -f docker-compose.prod.yml up
     ```
+
+## Dépôt Docker
+
+La pipeline Ci push une image sur le [dépot antoine_exam_server](https://hub.docker.com/r/acywip/antoine_exam_server/tags)
 
 ## Références
 
